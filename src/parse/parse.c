@@ -10,7 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushlibft.h"
+#include "../pushlibft.h"
+
+int	ft_null_check(char *argv[])
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (argv[i][0] == '\0')
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 static char	*ft_join(char const *s1, char const *s2)
 {
@@ -62,7 +76,6 @@ int	ft_duplicate(t_stack *stack)
 	t_stack	*rest;
 
 	comp = stack;
-
 	while (comp)
 	{
 		rest = comp->next;
@@ -102,10 +115,3 @@ char	**check_args(int argc, char *argv[])
 	}
 	return (split);
 }
-
-
-
-/*dentro del bucle en la condicion Si ambos son verdaderos, (split[i][0] != 0 && !n)
-significa que el string no es un número válido. 
-Básicamente, evita aceptar cadenas no numéricas como "abc", 
-que resultaría en n = 0 después de ft_atoi.*/

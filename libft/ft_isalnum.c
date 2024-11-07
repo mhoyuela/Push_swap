@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isordered.c                                     :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhoyuela <mhoyuela@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mhoyuela <mhoyuela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-30 14:44:53 by mhoyuela          #+#    #+#             */
-/*   Updated: 2024-09-30 14:44:53 by mhoyuela         ###   ########.fr       */
+/*   Created: 2024/04/08 16:51:59 by mhoyuela          #+#    #+#             */
+/*   Updated: 2024/04/22 13:33:30 by mhoyuela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushlibft.h"
+#include <unistd.h>
 
-int	ft_is_ordered(t_stack *stack)
+int	ft_isalnum(int c)
 {
-	int		n;
-	t_stack	*sublist;
-
-	sublist = stack;
-	while (sublist->next)
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')
+		|| (c >= '0' && c <= '9'))
 	{
-		n = sublist->value;
-		if (n > sublist->next->value)
-			return (0);
-		sublist = sublist->next;
+		return (1);
 	}
-	return (1);
+	return (0);
 }

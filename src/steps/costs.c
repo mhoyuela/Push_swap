@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushlibft.h"
+#include "../pushlibft.h"
 
 void	set_cost(t_stack **stack_a, t_stack **stack_b)
 {

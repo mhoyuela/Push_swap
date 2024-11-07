@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isordered.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhoyuela <mhoyuela@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mhoyuela <mhoyuela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-30 14:44:53 by mhoyuela          #+#    #+#             */
-/*   Updated: 2024-09-30 14:44:53 by mhoyuela         ###   ########.fr       */
+/*   Created: 2024/04/08 17:44:30 by mhoyuela          #+#    #+#             */
+/*   Updated: 2024/04/25 17:27:44 by mhoyuela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushlibft.h"
+#include <stdio.h>
 
-int	ft_is_ordered(t_stack *stack)
+size_t	ft_strlen(const char *s)
 {
-	int		n;
-	t_stack	*sublist;
+	size_t	i;
 
-	sublist = stack;
-	while (sublist->next)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		n = sublist->value;
-		if (n > sublist->next->value)
-			return (0);
-		sublist = sublist->next;
+		i++;
 	}
-	return (1);
+	return (i);
 }

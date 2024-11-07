@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isordered.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhoyuela <mhoyuela@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mhoyuela <mhoyuela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-30 14:44:53 by mhoyuela          #+#    #+#             */
-/*   Updated: 2024-09-30 14:44:53 by mhoyuela         ###   ########.fr       */
+/*   Created: 2024/05/04 18:21:33 by mhoyuela          #+#    #+#             */
+/*   Updated: 2024/05/08 18:43:29 by mhoyuela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushlibft.h"
+#include "libft.h"
 
-int	ft_is_ordered(t_stack *stack)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int		n;
-	t_stack	*sublist;
+	t_list	*buffer;
 
-	sublist = stack;
-	while (sublist->next)
+	if (!lst)
+		return ;
+	while (lst != NULL)
 	{
-		n = sublist->value;
-		if (n > sublist->next->value)
-			return (0);
-		sublist = sublist->next;
+		buffer = lst->next;
+		f(lst->content);
+		lst = buffer;
 	}
-	return (1);
 }

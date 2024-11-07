@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushlibft.h"
+#include "../pushlibft.h"
 
 static int	ft_max_int(int a, int b)
 {

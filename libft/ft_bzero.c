@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isordered.c                                     :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhoyuela <mhoyuela@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mhoyuela <mhoyuela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-30 14:44:53 by mhoyuela          #+#    #+#             */
-/*   Updated: 2024-09-30 14:44:53 by mhoyuela         ###   ########.fr       */
+/*   Created: 2024/04/09 17:40:59 by mhoyuela          #+#    #+#             */
+/*   Updated: 2024/04/20 18:12:50 by mhoyuela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushlibft.h"
+#include "libft.h"
 
-int	ft_is_ordered(t_stack *stack)
+void	ft_bzero(void *s, size_t n)
 {
-	int		n;
-	t_stack	*sublist;
-
-	sublist = stack;
-	while (sublist->next)
-	{
-		n = sublist->value;
-		if (n > sublist->next->value)
-			return (0);
-		sublist = sublist->next;
-	}
-	return (1);
+	ft_memset(s, 0, n);
 }

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isordered.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhoyuela <mhoyuela@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mhoyuela <mhoyuela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-30 14:44:53 by mhoyuela          #+#    #+#             */
-/*   Updated: 2024-09-30 14:44:53 by mhoyuela         ###   ########.fr       */
+/*   Created: 2024/05/01 13:06:20 by mhoyuela          #+#    #+#             */
+/*   Updated: 2024/05/08 16:25:34 by mhoyuela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushlibft.h"
+#include "libft.h"
 
-int	ft_is_ordered(t_stack *stack)
+t_list	*ft_lstnew(void *content)
 {
-	int		n;
-	t_stack	*sublist;
+	t_list	*new_nodo;
 
-	sublist = stack;
-	while (sublist->next)
-	{
-		n = sublist->value;
-		if (n > sublist->next->value)
-			return (0);
-		sublist = sublist->next;
-	}
-	return (1);
+	new_nodo = (t_list *)malloc(sizeof(t_list));
+	if (!new_nodo)
+		return (NULL);
+	new_nodo->content = content;
+	new_nodo->next = NULL;
+	return (new_nodo);
 }

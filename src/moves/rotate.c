@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/home/mhoyuela/Desktop/push_swap_manu/pushlibft.h"
+#include "../pushlibft.h"
 
 void	ft_rotate(t_stack **stack)
 {

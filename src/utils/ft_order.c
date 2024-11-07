@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../../pushlibft.h"
-
+#include "../pushlibft.h"
 
 int	*ft_sort_array(t_stack *stack, int *array, int size, int i)
 {
@@ -43,5 +41,13 @@ int	*ft_sort_array(t_stack *stack, int *array, int size, int i)
 	return (array);
 }
 
-
-/*tengo que cpomprobar si el array esta ordenado o no */
+void	ft_min_max(t_stack **stack_a)
+{
+	while (!ft_is_ordered(*stack_a))
+	{
+		if (ft_min(stack_a)->pos_a <= ft_stack_size(*stack_a) / 2)
+			ra(stack_a);
+		else
+			rra(stack_a);
+	}
+}

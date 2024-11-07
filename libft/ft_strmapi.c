@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isordered.c                                     :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhoyuela <mhoyuela@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mhoyuela <mhoyuela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-30 14:44:53 by mhoyuela          #+#    #+#             */
-/*   Updated: 2024-09-30 14:44:53 by mhoyuela         ###   ########.fr       */
+/*   Created: 2024/04/30 18:26:12 by mhoyuela          #+#    #+#             */
+/*   Updated: 2024/05/08 16:29:45 by mhoyuela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushlibft.h"
+#include "libft.h"
 
-int	ft_is_ordered(t_stack *stack)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		n;
-	t_stack	*sublist;
+	size_t	i;
+	char	*r;
 
-	sublist = stack;
-	while (sublist->next)
+	i = 0;
+	r = (char *)malloc(ft_strlen(s) + 1);
+	if (!r)
+		return (NULL);
+	while (s[i] != '\0')
 	{
-		n = sublist->value;
-		if (n > sublist->next->value)
-			return (0);
-		sublist = sublist->next;
+		r[i] = f(i, s[i]);
+		i++;
 	}
-	return (1);
+	r[i] = '\0';
+	return (r);
 }

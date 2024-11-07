@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushlibft.h"
+#include "../pushlibft.h"
 
 t_stack	*find_target(t_stack **stack_a, t_stack *node_b)
 {

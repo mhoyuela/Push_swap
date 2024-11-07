@@ -13,7 +13,7 @@
 #ifndef PUSHLIBFT_H
 # define PUSHLIBFT_H
 
-# include "/home/mhoyuela/Documents/libft/libft.h"
+# include "./libft/libft.h"
 # include <stdio.h>
 
 typedef struct s_stack
@@ -58,6 +58,7 @@ char	**check_args(int argc, char *argv[]);
 int		ft_max2(int n1, int n2);
 int		ft_min2(int n1, int n2);
 int		ft_is_numeric(char *n);
+int		ft_null_check(char *argv[]);
 
 //steps
 t_stack	*ft_cheapest(t_stack **stack_b);
@@ -78,6 +79,7 @@ void	ft_sort_three(t_stack **stack_a);
 int		ft_stack_size(t_stack *a);
 
 //utils
+void	ft_free_matrix(char **split);
 void	ft_free_split(char **split, int print);
 int		ft_is_ordered(t_stack *stack);
 void	ft_print_array(int	*array, int size);
@@ -86,10 +88,12 @@ void	ft_init_size(t_stack **stack);
 void	ft_init_pos_a(t_stack **stack);
 void	ft_init_index(t_stack **stack);
 void	ft_init_pos_a2(t_stack **stack_a, t_stack **stack_b);
-void	ft_initvalue(t_stack **stack, int argc, char *argv[]);
+void	ft_initvalue(t_stack **stack, char *argv[]);
 t_stack	*ft_new_node(int value);
-void	ft_add_back(t_stack **stack, t_stack *node);
+int		ft_add_back(t_stack **stack, t_stack *node);
 void	ft_add_front(t_stack **stack, t_stack *node);
-void	ft_print_stack(t_stack *stack);
+void	ft_min_max(t_stack **stack_a);
+int		ft_count_split(char **split);
+void	ft_free_stack(t_stack *stack);
 
 #endif

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushlibft.h"
+#include "../pushlibft.h"
 
 void	ft_push(t_stack **src, t_stack **dest)
 {

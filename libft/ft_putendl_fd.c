@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isordered.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhoyuela <mhoyuela@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mhoyuela <mhoyuela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-30 14:44:53 by mhoyuela          #+#    #+#             */
-/*   Updated: 2024-09-30 14:44:53 by mhoyuela         ###   ########.fr       */
+/*   Created: 2024/04/25 19:51:21 by mhoyuela          #+#    #+#             */
+/*   Updated: 2024/05/08 16:26:10 by mhoyuela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushlibft.h"
+#include "libft.h"
 
-int	ft_is_ordered(t_stack *stack)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int		n;
-	t_stack	*sublist;
+	int	i;
 
-	sublist = stack;
-	while (sublist->next)
+	i = 0;
+	if (fd >= 0)
 	{
-		n = sublist->value;
-		if (n > sublist->next->value)
-			return (0);
-		sublist = sublist->next;
+		while (s[i] != '\0')
+		{
+			write (fd, &s[i], 1);
+			i++;
+		}
+		write (fd, "\n", 1);
 	}
-	return (1);
 }
+/*
+int main()
+{
+	ft_putendl_fd("putasevilla", 1);
+	return (0);
+}*/

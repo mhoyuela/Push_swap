@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/home/mhoyuela/Desktop/push_swap_manu/pushlibft.h"
+#include "../pushlibft.h"
 
 int	ft_stack_size(t_stack *a)
 {

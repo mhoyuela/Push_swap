@@ -1,50 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min_max.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhoyuela <mhoyuela@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mhoyuela <mhoyuela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-09-28 12:42:38 by mhoyuela          #+#    #+#             */
-/*   Updated: 2024-09-28 12:42:38 by mhoyuela         ###   ########.fr       */
+/*   Created: 2024/04/19 13:35:43 by mhoyuela          #+#    #+#             */
+/*   Updated: 2024/04/20 18:09:56 by mhoyuela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushlibft.h"
+#include "libft.h"
 
-int	ft_max2(int n1, int n2)
-{
-	if (n1 > n2)
-		return (n1);
-	else
-		return (n2);
-}
-
-int	ft_min2(int n1, int n2)
-{
-	if (n1 < n2)
-		return (n1);
-	else
-		return (n2);
-}
-
-int	ft_is_numeric(char *n)
-{
-	int	i;
-
-	i = 0;
-	if (n[i] == '-' || n[i] == '+')
-		i++;
-	while (n[i])
-	{
-		if (!ft_isdigit(n[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	ft_atoi_ps(const char *str, char **split)
+int	ft_atoi(const char *str)
 {
 	int			i;
 	long int	result;
@@ -70,5 +38,12 @@ int	ft_atoi_ps(const char *str, char **split)
 	if (((sign * result) >= -2147483648) && ((sign * result) <= 2147483647))
 		return (sign * result);
 	else
-		return (ft_free_split(split, 1), 0);
+		return (0);
 }
+/*int main()
+{
+	char str[] = "-12-34";
+	
+	printf("%d", ft_atoi(str));
+	return(0);
+}*/

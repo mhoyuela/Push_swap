@@ -1,8 +1,8 @@
 # Variables
 CC = gcc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror #-fsanitize=address
 
-LIBFT_DIR = /home/mhoyuela/Documents/libft
+LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 
@@ -29,7 +29,7 @@ NAME = push_swap
 all: $(NAME)
 
 $(NAME): $(LIBFT)  $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@ $(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 # Crea los directorios necesarios dentro de OBJ_DIR
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)

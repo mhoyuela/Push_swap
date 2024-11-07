@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushlibft.h"
+#include "../pushlibft.h"
 
 t_stack	*ft_cheapest(t_stack **stack_b)
 {

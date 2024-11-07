@@ -11,15 +11,16 @@
 /* ************************************************************************** */
 
 #include "../pushlibft.h"
-#include <stdio.h>
 
 void	ft_init_size(t_stack **stack)
 {
 	int		i;
 	t_stack	*aux;
 
-	i = 0;
+	if ((*stack) == NULL)
+		return ;
 	aux = *stack;
+	i = 0;
 	while (aux)
 	{
 		i++;
@@ -69,6 +70,7 @@ void	ft_init_index(t_stack **stack)
 		}
 		nodo = nodo->next;
 	}
+	free(array);
 }
 
 void	ft_init_pos_a2(t_stack **stack_a, t_stack **stack_b)
@@ -77,17 +79,25 @@ void	ft_init_pos_a2(t_stack **stack_a, t_stack **stack_b)
 	ft_init_pos_a(stack_b);
 }
 
-void	ft_initvalue(t_stack **stack, int argc, char *split[])
+void	ft_initvalue(t_stack **stack, char *split[])
 {
 	int		i;
 	t_stack	*node;
 
-	(void)argc;
 	i = 0;
 	while (split[i])
 	{
 		node = ft_new_node(ft_atoi(split[i]));
-		ft_add_back(stack, node);
+		if (!node)
+		{
+			ft_free_stack(*stack);
+			return ;
+		}
+		if (ft_add_back(stack, node) == -1)
+		{
+			ft_free_stack(*stack);
+			return ;
+		}
 		node->pos_a = i;
 		i++;
 	}
